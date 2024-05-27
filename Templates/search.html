@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlixFinder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="search-container">
+        <img src="{{ url_for('static', filename='image/cinema.jpg') }}" alt="Netflix Background" class="bg">
+        <div class="search-box">
+            <h1 class="search-title">Search Movies and Shows</h1>
+            <form action="{{ url_for('search') }}" method="post">
+                <div class="textbox">
+                    <input type="text" placeholder="Title" name="title">
+                </div>
+                <div class="textbox">
+                    <input type="text" placeholder="Director" name="director">
+                </div>
+                <div class="textbox">
+                    <input type="text" placeholder="Cast" name="cast">
+                </div>
+                <div class="textbox">
+                    <input type="text" placeholder="Country" name="country">
+                </div>
+                <div class="textbox">
+                    <input type="text" placeholder="Release Year" name="release_year">
+                </div>
+                <div class="textbox">
+                    <input type="text" placeholder="Rating" name="rating">
+                </div>
+                <div class="textbox">
+                    <input type="text" placeholder="Duration" name="duration">
+                </div>
+                <div class="textbox">
+                    <input type="text" placeholder="Listed In" name="listed_in">
+                </div>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+        <div class="navigation-search">
+            <a href="{{ url_for('home') }}" class="btn-gray">Home</a>
+        </div>    
+    </div>
+</body>
+</html>

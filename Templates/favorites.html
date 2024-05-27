@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="home-container">
+        <img src="{{ url_for('static', filename='image/cinema.jpg') }}" alt="Netflix Background" class="bg">
+        <div class="home-box">
+            <h1>Favorites</h1>
+            <ul>
+                {% for show, date in favorite_shows %}
+                <li>{{ show }} - {{ date }}</li>
+                {% endfor %}
+            </ul>
+            <div class="navigation-favorites">
+                <a href="{{ url_for('home') }}" class="btn">Home</a>
+                <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

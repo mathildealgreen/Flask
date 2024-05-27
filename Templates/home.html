@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlixFinder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="home-container">
+        <img src="{{ url_for('static', filename='image/cinema.jpg') }}" alt="Netflix Background" class="bg">
+        <div class="home-box">
+            <h1>{{ greeting_message }}</h1>
+            <div class="navigation-home">
+                <a href="{{ url_for('favorites') }}" class="btn">Favorites</a>
+                <a href="{{ url_for('search') }}" class="btn">Search</a>
+                <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

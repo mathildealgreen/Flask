@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - FlixFinder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="results-container">
+        <img src="{{ url_for('static', filename='image/cinema.jpg') }}" alt="Netflix Background" class="bg">
+        <div class="results-box">
+            <h1 class="search-title">Search Movies and Shows</h1>
+            {% if results %}
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Director</th>
+                        <th>Cast</th>
+                        <th>Country</th>
+                        <th>Release Year</th>
+                        <th>Rating</th>
+                        <th>Duration</th>
+                        <th>Listed In</th>
+                    </tr>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ result.title }}</td>
+                        <td>{{ result.director }}</td>
+                        <td>{{ result.cast }}</td>
+                        <td>{{ result.country }}</td>
+                        <td>{{ result.release_year }}</td>
+                        <td>{{ result.rating }}</td>
+                        <td>{{ result.duration }}</td>
+                        <td>{{ result.listed_in }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No results found</p>
+            {% endif %}
+        </div>
+        <div class="navigation">
+            <a href="{{ url_for('home') }}" class="btn-gray">Home</a>
+        </div>
+        
+    </div>
+</body>
+</html>
