@@ -25,14 +25,14 @@
                     </tr>
                     {% for result in results %}
                     <tr>
-                        <td>{{ result.title }}</td>
-                        <td>{{ result.director }}</td>
-                        <td>{{ result.cast }}</td>
-                        <td>{{ result.country }}</td>
-                        <td>{{ result.release_year }}</td>
-                        <td>{{ result.rating }}</td>
-                        <td>{{ result.duration }}</td>
-                        <td>{{ result.listed_in }}</td>
+                        <td>{{ result[2] }}</td> <!-- title -->
+                        <td>{{ result[3] }}</td> <!-- director -->
+                        <td>{{ result[4] }}</td> <!-- cast -->
+                        <td>{{ result[5] }}</td> <!-- country -->
+                        <td>{{ result[7] }}</td> <!-- release year -->
+                        <td>{{ result[8] }}</td> <!-- rating -->
+                        <td>{{ result[9] }}</td> <!-- duration -->
+                        <td>{{ result[10] }}</td> <!-- listed_in -->
                     </tr>
                     {% endfor %}
                 </table>

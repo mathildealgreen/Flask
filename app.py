@@ -1,14 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import psycopg2
 from werkzeug.security import generate_password_hash, check_password_hash
-import db
 import logging
-
 import nltk
 from nltk import CFG
 import random
-
-
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey12345'
@@ -16,17 +12,39 @@ app.secret_key = 'supersecretkey12345'
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)
 
-
-
 # Database connection
 def get_db_connection():
     conn = psycopg2.connect(
-        dbname='netflix_fave',
-        user='postgres',
-        password='anders2001',
+        dbname='netflix_fave',  # Ensure this matches your database name
+        user='postgres',        # Ensure this matches your username
+        password='anders2001',  # Ensure this matches your password
         host='localhost'
     )
-    return conn 
+    return conn
+
+# Define the CFG rules
+cfg_rules = """
+S -> Greeting Intro
+Greeting -> 'Hi!' | 'Hello!' | 'Hey!'
+Intro -> 'Welcome to FlixFinder!'
+"""
+
+# Parse the CFG
+cfg = CFG.fromstring(cfg_rules)
+
+def generate_sentence(grammar):
+    productions = grammar.productions(lhs=grammar.start())
+    sentence = []
+
+    def expand(production):
+        for symbol in production.rhs():
+            if isinstance(symbol, nltk.grammar.Nonterminal):
+                expand(random.choice(grammar.productions(lhs=symbol)))
+            else:
+                sentence.append(symbol)
+
+    expand(random.choice(productions))
+    return ' '.join(sentence)
 
 @app.route('/')
 def index():
@@ -76,31 +94,6 @@ def register():
     
     return render_template('register.html')
 
-# GRAMMAR
-# Define the CFG rules
-cfg_rules = """
-S -> Greeting Intro
-Greeting -> 'Hi!' | 'Hello!' | 'Hey!'
-Intro -> 'Welcome to FlixFinder!'
-"""
-
-# Parse the CFG
-cfg = CFG.fromstring(cfg_rules)
-
-def generate_sentence(grammar):
-    productions = grammar.productions(lhs=grammar.start())
-    sentence = []
-
-    def expand(production):
-        for symbol in production.rhs():
-            if isinstance(symbol, nltk.grammar.Nonterminal):
-                expand(random.choice(grammar.productions(lhs=symbol)))
-            else:
-                sentence.append(symbol)
-
-    expand(random.choice(productions))
-    return ' '.join(sentence)
-
 @app.route('/home')
 def home():
     if 'user_id' in session:
@@ -117,7 +110,6 @@ def home():
             greeting_message = generate_sentence(cfg)  # Generate the greeting message
             return render_template('home.html', username=username, greeting_message=greeting_message)
     return redirect(url_for('login'))
-
 
 @app.route('/favorites', methods=['GET', 'POST'])
 def favorites():

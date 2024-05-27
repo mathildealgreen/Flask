@@ -13,24 +13,24 @@ body, html {
     -webkit-filter: blur(8px);
 }
 
-.login-container, .home-container, .search-container {
+.login-container, .home-container, .search-container, .results-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
 
-.login-box, .home-box, .search-box {
+.login-box, .home-box, .search-box, .results-box {
     background: rgba(0, 0, 0, 0.75);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     color: white;
-    max-width: 300px;
+    max-width: 800px; /* Adjusted to make space for table */
     width: 100%;
 }
 
-.login-box h1 {
+.login-box h1, .search-title {
     margin-bottom: 20px;
 }
 
@@ -133,7 +133,7 @@ body, html {
 
 .navigation-home {
     position: relative;
-    bottom: 11x; /* Juster denne værdi efter behov */
+    bottom: 11px; /* Juster denne værdi efter behov */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -150,4 +150,28 @@ body, html {
     top: 150px; /* Juster denne værdi efter behov */
     left: 50%;
     transform: translateX(-50%);
+}
+
+/* Ny tilføjelse for at sikre at søgeresultaterne vises i hvid skrift */
+.results-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-box th, .results-box td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: left;
+}
+
+.results-box th {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.results-box td {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.results-box, .results-box th, .results-box td, .results-box p {
+    color: white;
 }
