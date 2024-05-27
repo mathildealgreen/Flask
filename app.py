@@ -129,12 +129,19 @@ def favorites():
                     (user_id, show_id, date))
         conn.commit()
 
-    cur.execute('SELECT movies_and_shows.title, favorite.date FROM favorite JOIN movies_and_shows ON favorite.show_id = movies_and_shows.show_id WHERE favorite.user_id = %s;', (user_id,))
+    cur.execute('''
+        SELECT movies_and_shows.title, favorite.date, movies_and_shows.type, movies_and_shows.director
+        FROM favorite 
+        JOIN movies_and_shows ON favorite.show_id = movies_and_shows.show_id 
+        WHERE favorite.user_id = %s;
+    ''', (user_id,))
     favorite_shows = cur.fetchall()
     cur.close()
     conn.close()
 
     return render_template('favorites.html', favorite_shows=favorite_shows)
+
+
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
@@ -196,6 +203,29 @@ def search():
         conn.close()
 
         return render_template('search_results.html', results=results)
+
+@app.route('/add_favorites', methods=['POST'])
+def add_favorites():
+    if 'user_id' not in session:
+        flash('Please log in to add favorites', 'warning')
+        return redirect(url_for('login'))
+    
+    user_id = session['user_id']
+    show_ids = request.form.getlist('favorites')
+
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    for show_id in show_ids:
+        cur.execute('INSERT INTO favorite (user_id, show_id, date) VALUES (%s, %s, current_date)', 
+                    (user_id, show_id))
+
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    flash('Favorites added successfully!', 'success')
+    return redirect(url_for('favorites'))
 
 @app.route('/logout')
 def logout():

@@ -12,30 +12,35 @@
         <div class="results-box">
             <h1 class="search-title">Search Movies and Shows</h1>
             {% if results %}
-                <table>
-                    <tr>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Cast</th>
-                        <th>Country</th>
-                        <th>Release Year</th>
-                        <th>Rating</th>
-                        <th>Duration</th>
-                        <th>Listed In</th>
-                    </tr>
-                    {% for result in results %}
-                    <tr>
-                        <td>{{ result[2] }}</td> <!-- title -->
-                        <td>{{ result[3] }}</td> <!-- director -->
-                        <td>{{ result[4] }}</td> <!-- cast -->
-                        <td>{{ result[5] }}</td> <!-- country -->
-                        <td>{{ result[7] }}</td> <!-- release year -->
-                        <td>{{ result[8] }}</td> <!-- rating -->
-                        <td>{{ result[9] }}</td> <!-- duration -->
-                        <td>{{ result[10] }}</td> <!-- listed_in -->
-                    </tr>
-                    {% endfor %}
-                </table>
+                <form action="{{ url_for('add_favorites') }}" method="post">
+                    <table>
+                        <tr>
+                            <th>Add to Favorites</th>
+                            <th>Title</th>
+                            <th>Director</th>
+                            <th>Cast</th>
+                            <th>Country</th>
+                            <th>Release Year</th>
+                            <th>Rating</th>
+                            <th>Duration</th>
+                            <th>Listed In</th>
+                        </tr>
+                        {% for result in results %}
+                        <tr>
+                            <td><input type="checkbox" name="favorites" value="{{ result[0] }}"></td> <!-- show_id -->
+                            <td>{{ result[2] }}</td> <!-- title -->
+                            <td>{{ result[3] }}</td> <!-- director -->
+                            <td>{{ result[4] }}</td> <!-- cast -->
+                            <td>{{ result[5] }}</td> <!-- country -->
+                            <td>{{ result[7] }}</td> <!-- release year -->
+                            <td>{{ result[8] }}</td> <!-- rating -->
+                            <td>{{ result[9] }}</td> <!-- duration -->
+                            <td>{{ result[10] }}</td> <!-- listed_in -->
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <button type="submit" class="btn">Add to Favorites</button>
+                </form>
             {% else %}
                 <p>No results found</p>
             {% endif %}
@@ -43,7 +48,7 @@
         <div class="navigation">
             <a href="{{ url_for('home') }}" class="btn-gray">Home</a>
         </div>
-        
     </div>
 </body>
 </html>
+

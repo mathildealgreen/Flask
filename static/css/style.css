@@ -13,14 +13,14 @@ body, html {
     -webkit-filter: blur(8px);
 }
 
-.login-container, .home-container, .search-container, .register-container {
+.login-container, .home-container, .search-container, .register-container, .favorites-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
 
-.login-box, .home-box, .search-box, .register-box {
+.login-box, .home-box, .search-box, .register-box, .favorites-box {
     background: rgba(0, 0, 0, 0.75);
     padding: 20px;
     border-radius: 8px;
@@ -147,7 +147,7 @@ body, html {
 
 .navigation-favorites {
     position: absolute;
-    top: 150px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
 }

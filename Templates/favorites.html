@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="home-container">
+    <div class="favorites-container">
         <img src="{{ url_for('static', filename='image/cinema.jpg') }}" alt="Netflix Background" class="bg">
-        <div class="home-box">
+        <div class="favorites-box">
             <h1>Favorites</h1>
             <ul>
-                {% for show, date in favorite_shows %}
-                <li>{{ show }} - {{ date }}</li>
+                {% for show, date, type, director in favorite_shows %}
+                <li>{{ type }}: {{ show }} - {{ director }} - {{ date }}</li>
                 {% endfor %}
             </ul>
             <div class="navigation-favorites">
@@ -24,5 +24,3 @@
     </div>
 </body>
 </html>
-
-
