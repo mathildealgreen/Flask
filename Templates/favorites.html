@@ -11,11 +11,17 @@
         <img src="{{ url_for('static', filename='image/cinema.jpg') }}" alt="Netflix Background" class="bg">
         <div class="favorites-box">
             <h1>Favorites</h1>
-            <ul>
-                {% for show, date, type, director in favorite_shows %}
-                <li>{{ type }}: {{ show }} - {{ director }} - {{ date }}</li>
-                {% endfor %}
-            </ul>
+            <form action="{{ url_for('delete_favorites') }}" method="post">
+                <ul>
+                    {% for show_id, show, date, type, director in favorite_shows %}
+                    <li>
+                        <input type="checkbox" name="favorites" value="{{ show_id }}">
+                        {{ type }}: {{ show }} - {{ director }} - {{ date }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <button type="submit" class="btn">Delete Selected</button>
+            </form>
             <div class="navigation-favorites">
                 <a href="{{ url_for('home') }}" class="btn">Home</a>
                 <a href="{{ url_for('logout') }}" class="btn">Logout</a>
