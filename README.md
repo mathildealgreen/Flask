@@ -12,7 +12,7 @@ Run the project?
 python app.py
 
 You will first enter the 'login' site. First press "join now" to make an account.
-Then 'login' with your freshly made account. From the search site you can search titles such as "paranoia" or "squid games" or you can try a number in the duration bar - try with "2".
+Then 'login' with your freshly made account. From the search site you can search titles such as "paranoia" or "squid game" or you can try a number in the duration bar - try with "2".
 From the search results list you can add the movie or TV-show to your favorites list. Here you can also delete movies and shows from your list.
 
 Enjoy :-)
