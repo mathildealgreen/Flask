@@ -1,4 +1,4 @@
-For our DIS-project we made a website that lets you search for movies and TV-shows and add them to your favorites list.
+For our DIS-project we made a website that lets you search for movies and TV-shows and add them to your favorites list, called "FlixFinder".
 
 How to compile our project? 
 Open postgresSQL(pgAdmin) and change the password in the app.py to your own password.
