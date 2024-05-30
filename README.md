@@ -1,7 +1,7 @@
 For our DIS-project we made a website that lets you search for movies and TV-shows and add them to your favorites list.
 
 How to compile our project? 
-Open postgresSQL and change the password in the app.py to your own password.
+Open postgresSQL(pgAdmin) and change the password in the app.py to your own password.
 
 Install the needed libraries (flask, psycopg2, werkzeug.security,logging,nltk,random).
 
