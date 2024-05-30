@@ -2,7 +2,7 @@ For our DIS-project we made a website that lets you search for movies and TV-sho
 
 How to compile our project? 
 Open postgresSQL and change the password in the app.py to your own password.
-Install the needed libraries (flask, psycopg2, werkzeug.security,logging,nltk,random)
+Install the needed libraries (flask, psycopg2, werkzeug.security,logging,nltk,random).
 By using the following command in the terminal:
 pip install -r requirements.txt 
 
