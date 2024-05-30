@@ -28,14 +28,14 @@
                         {% for result in results %}
                         <tr>
                             <td><input type="checkbox" name="favorites" value="{{ result[0] }}"></td> <!-- show_id -->
-                            <td>{{ result[3] }}</td> <!-- title -->
-                            <td>{{ result[4] }}</td> <!-- director -->
-                            <td>{{ result[5] }}</td> <!-- cast -->
-                            <td>{{ result[6] }}</td> <!-- country -->
-                            <td>{{ result[7] }}</td> <!-- release year -->
-                            <td>{{ result[8] }}</td> <!-- rating -->
-                            <td>{{ result[9] }}</td> <!-- duration -->
-                            <td>{{ result[10] }}</td> <!-- listed_in -->
+                            <td>{{ result[2] }}</td> <!-- title -->
+                            <td>{{ result[3] }}</td> <!-- director -->
+                            <td>{{ result[4] }}</td> <!-- cast -->
+                            <td>{{ result[5] }}</td> <!-- country -->
+                            <td>{{ result[6] }}</td> <!-- release year -->
+                            <td>{{ result[7] }}</td> <!-- rating -->
+                            <td>{{ result[8] }}</td> <!-- duration -->
+                            <td>{{ result[9] }}</td> <!-- listed_in -->
                         </tr>
                         {% endfor %}
                     </table>

@@ -40,9 +40,8 @@ cur.execute('''
         type VARCHAR(50),
         title VARCHAR(150),
         director VARCHAR(150),
-        "cast" VARCHAR(500),
+        "cast" VARCHAR(5000),
         country VARCHAR(5000),
-        date_added DATE,
         release_year INTEGER,
         rating VARCHAR(10),
         duration VARCHAR(50),
@@ -83,15 +82,15 @@ with open('netflix2.csv', 'r', encoding="UTF-8") as f:
     reader = csv.reader(f)
     next(reader)  # Skip the header row.
     for row in reader:
-        date_added = parse_date(row[5])  # Assuming the date_added column is the 6th column in the CSV
-        release_year = int(row[6]) if row[6].isdigit() else None  # Ensure release_year is an integer
-        rating = row[7] if row[7] else None  # Ensure rating is a string or None
-        duration = row[8] if row[8] else None  # Ensure duration is a string or None
+        date_added = parse_date(row[6])  # Assuming the date_added column is the 6th column in the CSV
+        release_year = int(row[7]) if row[7].isdigit() else None  # Ensure release_year is an integer
+        rating = row[8] if row[8] else None  # Ensure rating is a string or None
+        duration = row[9] if row[9] else None  # Ensure duration is a string or None
 
         cur.execute('''
-            INSERT INTO movies_and_shows (type, title, director, "cast", country, date_added, release_year, rating, duration, listed_in, description)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        ''', (row[0], row[1], row[2], row[3], row[4], date_added, release_year, rating, duration, row[9], row[10]))
+            INSERT INTO movies_and_shows (type, title, director, "cast", country, release_year, rating, duration, listed_in, description)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ''', (row[0], row[2], row[3], row[4], row[5], release_year, rating, duration, row[10], row[11]))
 
 conn.commit()
 

@@ -5,6 +5,7 @@ import logging
 import nltk
 from nltk import CFG
 import random
+import db
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey12345'
