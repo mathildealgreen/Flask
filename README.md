@@ -17,5 +17,5 @@ From the search results list you can add the movie or TV-show to your favorites 
 
 Enjoy :-)
 
-Made by xfv486, hzs762, zpn710.
+Made by (Mathilde: xfv486), (Anna Sofie: hzs762), (Mathilde: zpn710).
 
