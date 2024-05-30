@@ -19,3 +19,5 @@ Enjoy :-)
 
 Made by (Mathilde: xfv486), (Anna Sofie: hzs762), (Mathilde: zpn710) - Group 100.
 
+Note: The PDF of the ER-diagram is only available from the github web page not in vscode.
+
