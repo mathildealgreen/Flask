@@ -23,6 +23,8 @@ Made by (Mathilde: xfv486), (Anna Sofie: hzs762), (Mathilde: zpn710) - Group 100
 
 Note: The PDF of the ER-diagram is only available from the github web page not in vscode.
 
+TA - Harald
+
 ![image](https://github.com/mathildealgreen/Flask/assets/117158792/9ad80c08-3caa-4ef8-9b72-30b9cdf11530)
 
 ![image](https://github.com/mathildealgreen/Flask/assets/117158792/cda7fd56-7988-4ca2-8eec-25292ffe3ab2)
